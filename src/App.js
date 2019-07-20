@@ -9,7 +9,7 @@ class App extends Component {
   };
 
   componentDidMount = async () => {
-    const res = await fetch('http://localhost:8082/api/messages');
+    const res = await fetch(`${process.env.REACT_APP_API_URL}`);
     const messagesFromJson = await res.json();
     this.setState({
       messages: messagesFromJson.map( message => {
